@@ -24,19 +24,23 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
+    private String rol;
+
     // Constructores
     public Usuario() {}
 
-    public Usuario(String email, String password, String nombre) {
+    public Usuario(String email, String password, String nombre, String rol) {
         this.email = email;
         this.password = password;
         this.nombre = nombre;
+        this.rol = rol;
     }
 
     // Implementación de UserDetails para que pueda encontrar los usuarios
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + rol));
     }
 
     @Override
@@ -77,4 +81,7 @@ public class Usuario implements UserDetails {
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getRol() { return rol; }
+    public void setRol(String rol) { this.rol = rol; }
 }

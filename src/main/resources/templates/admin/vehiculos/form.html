@@ -10,7 +10,7 @@
 
 <h2>Nuevo / Editar Vehículo</h2>
 
-<form th:action="@{/vehiculos/save}" th:object="${vehiculo}" method="post">
+<form th:action="@{/admin/vehiculos/save}" th:object="${vehiculo}" method="post">
   <input type="hidden" th:field="*{id}" />
   <div><label>Matricula: <input type="text" th:field="*{matricula}" /></label></div>
   <div><label>Modelo: <input type="text" th:field="*{modelo}" /></label></div>

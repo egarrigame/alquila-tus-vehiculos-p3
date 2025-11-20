@@ -7,15 +7,24 @@
 <body>
 <div th:fragment="navbar">
     <header>
-        <h1>AlquilaTusVehiculos</h1>
         <nav>
             <a th:href="@{/home}">Inicio</a> |
-            <a th:href="@{/vehiculos}">Vehículos</a> |
-            <a th:href="@{/clientes}">Clientes</a> |
-            <a th:href="@{/alquileres}">Alquileres</a>
-            |
+
+            <!--Rol admin-->
+            <span sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/admin/vehiculos}">Vehículos</a> |
+                <a th:href="@{/admin/clientes}">Clientes</a> |
+                <a th:href="@{/admin/alquileres}">Alquileres</a> |
+            </span>
+
+            <!--Rol user-->
+            <span sec:authorize="hasRole('USER')">
+                <a th:href="@{/user/alquileres}">Alquileres</a> |
+            </span>
+
             <span sec:authorize="isAuthenticated()">
                     Bienvenido, <span sec:authentication="principal.nombre"></span>
+                    (<span sec:authentication="principal.rol"></span>)
                     <form th:action="@{/logout}" method="post" style="display: inline;">
                         <button type="submit">Cerrar sesión</button>
                     </form>

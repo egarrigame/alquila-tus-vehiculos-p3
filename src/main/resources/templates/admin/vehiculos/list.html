@@ -9,7 +9,7 @@
 </header>
 
 <h2>Listado de vehículos</h2>
-<a th:href="@{/vehiculos/create}">+ Añadir Vehículo</a>
+<a th:href="@{/admin/vehiculos/create}">+ Añadir Vehículo</a>
 <table border="1" cellpadding="6" cellspacing="0">
   <thead><tr><th>ID</th><th>Matricula</th><th>Modelo</th><th>Precio/día</th><th>Acciones</th></tr></thead>
   <tbody>
@@ -19,7 +19,7 @@
     <td th:text="${v.modelo}">Modelo</td>
     <td th:text="${v.precioDia}">0.0</td>
     <td>
-      <a th:href="@{|/vehiculos/delete/${v.id}|}" onclick="return confirm('¿Borrar vehículo?')">Borrar</a>
+      <a th:href="@{|/admin/vehiculos/delete/${v.id}|}" onclick="return confirm('¿Borrar vehículo?')">Borrar</a>
     </td>
   </tr>
   </tbody>

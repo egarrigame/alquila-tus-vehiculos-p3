@@ -20,6 +20,10 @@ public class Alquiler {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     @OneToMany(mappedBy = "alquiler", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AlquilerVehiculos> alquilerVehiculos = new ArrayList<>();
 
@@ -40,6 +44,9 @@ public class Alquiler {
 
     public Cliente getCliente() { return cliente; }
     public void setCliente(Cliente cliente) { this.cliente = cliente; }
+
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
     public List<AlquilerVehiculos> getAlquilerVehiculos() { return alquilerVehiculos; }
     public void setAlquilerVehiculos(List<AlquilerVehiculos> alquilerVehiculos) { this.alquilerVehiculos = alquilerVehiculos; }

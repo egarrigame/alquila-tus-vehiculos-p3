@@ -12,8 +12,8 @@
 </header>
 
 <h2>Listado de clientes</h2>
-<a th:href="@{/clientes/create}">+ Añadir Cliente</a>
-<table border="1" cellpadding="6" cellspacing="0">
+<a th:href="@{/admin/clientes/create}">+ Añadir Cliente</a>
+<table>
     <thead>
     <tr><th>ID</th><th>DNI</th><th>Telefono</th><th>Nombre</th><th>Acciones</th></tr>
     </thead>
@@ -24,9 +24,9 @@
         <td th:text="${c.telefono}">Telefono</td>
         <td th:text="${c.nombre}">Nombre</td>
         <td>
-            <a th:href="@{|/clientes/edit/${c.id}|}">Editar</a>
+            <a th:href="@{|/admin/clientes/edit/${c.id}|}">Editar</a>
             &nbsp;|&nbsp;
-            <a th:href="@{|/clientes/delete/${c.id}|}" onclick="return confirm('¿Borrar cliente?')">Borrar</a>
+            <a th:href="@{|/admin/clientes/delete/${c.id}|}" onclick="return confirm('¿Borrar cliente?')">Borrar</a>
         </td>
     </tr>
     </tbody>
