@@ -1,0 +1,17 @@
+proceso p3 be
+- añadir dependecia de Spring Security al pom --> Spring Boot 4-M3 aun no tiene la dependencia por ser una versión milestone. Cambiamos a Spring Boot 3.3.4 que sí que es compatible con Spring Security, añadimos dependencia y recargamos Maven.
+- creamos la entidad usuario y el repositorio.
+- creamos una clase de configuración para la seguridad y ponemos parámetros.
+- creamos una clase de servicio para gestionar los usuarios, verificar si existen y codificar contraseñas.
+- crear el controlador de autenticación para mostrar el login o el registro.
+- modificamos el controller del index.
+- creamos el html para el login.
+- creamos el html para el registro.
+(se han añadido estilos de bootstrap para hacerlos más claros)
+- añadimos ruta a las páginas en el navbar del índice.
+- actualizamos application.properties con configuración adicional de Spring Secutiry y para mensajes de login y errores.
+- problema con el login: se crea el usuario pero no se puede buscar en la bbdd. Añadimos detalles del servicio para cargar usuarios desde la bbdd. Implementamos detalles del usuario en el modelo, creamos el servicio, actualizamos la configuración de seguridad y funciona.
+- no hay opción para hacer logout. Ampliamos configuración de seguridad y funcionalidad para el logut.
+- para que sea más sencillo, se crea un navbar nuevo como fragmento html para reusar en todas las páginas.
+- se modifican los html de todas las páginas para incluir el nuevo navbar con la opción de inicio de sesión y registro (cuando el usuario no está autenticado) y cerrar sesión (cuando está autenticado).
+
