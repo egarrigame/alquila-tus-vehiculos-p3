@@ -1,5 +1,5 @@
 # Builder
-FROM eclipse-temurin:25 as builder
+FROM eclipse-temurin:21 as builder
 WORKDIR /app
 
 # instalar maven
@@ -13,7 +13,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # JAR resultado y JaVA jre
-FROM eclipse-temurin:25-jre
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copiar el JAR
